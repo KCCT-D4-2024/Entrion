@@ -19,8 +19,8 @@ services:
     container_name: entrion_app
     stdin_open: true
     tty: true
-    volumes:
-      - .:/app
+    # volumes:
+    #   - .:/app
     environment:
       - RAILS_ENV=development
     ports:
