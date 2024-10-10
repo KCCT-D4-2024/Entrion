@@ -44,7 +44,7 @@ $ brew install docker
 
 ## リポジトリのクローン
 ```
-$ git clone git@github.com:Hayatann/Entrion.git
+$ git clone git@github.com:KCCT-D4-2024/Entrion.git
 ```
 
 ## 起動
