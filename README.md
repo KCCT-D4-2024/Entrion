@@ -58,3 +58,16 @@ $ docker-compose up --build
 4. ブラウザで`localhost:3000`にアクセス
 5. 画面が表示されれば成功
 
+## Docker内でのコマンド実行方法
+
+```
+$ docker compose exec app [コマンド]
+```
+
+### 例
+
+```
+$ docker compose exec app rails g model User
+```
+みたいな感じ
+
