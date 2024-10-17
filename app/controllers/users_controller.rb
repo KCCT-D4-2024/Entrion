@@ -6,8 +6,9 @@ class UsersController < ApplicationController
   end
 
   def enter
+    @user = current_user
     ActiveRecord::Base.transaction do
-      current_user.update(status: :entered)
+      @user.update(status: :entered, entered_at: Time.zone.now)
     end
     redirect_to users_path
   rescue ActiveRecord::RecordInvalid => e

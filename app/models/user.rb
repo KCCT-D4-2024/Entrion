@@ -30,16 +30,4 @@ class User < ApplicationRecord
     end
   end
 
-  def update_entered_at
-    if saved_change_to_status? && entered?
-      self.entered_at = Time.now
-    end
-  end
-
-  def update_exited_at
-    if saved_change_to_status? && exited?
-      self.exited_at = Time.now
-    end
-  end
-
 end
