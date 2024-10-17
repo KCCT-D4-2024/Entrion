@@ -19,7 +19,7 @@ RUN bundle install
 COPY . /app
 
 
-RUN yarn install --check-files
+RUN yarn install --check-files && yarn list esbuild && yarn list tailwindcss
 
 RUN gem install foreman
 
