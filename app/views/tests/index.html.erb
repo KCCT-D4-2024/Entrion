@@ -1,21 +1,32 @@
-<h1 class="text-3xl font-bold underline">
-  Hello world!
-</h1>
+<div class="text-center">
+  <h1 class="text-3xl font-bold underline mb-6">
+    電子工学科展示会へようこそ！
+  </h1>
 
-<button class="bg-gray-900 hover:bg-gray-800 text-white rounded px-4 py-2">tailwind</button>
+  <!-- Tailwind Button -->
+  <button class="bg-gray-900 hover:bg-gray-800 text-white rounded px-4 py-2 mb-4">
+    tailwind
+  </button>
 
-<button class="btn">daisyUI</button>
-<div class="card bg-base-100 w-96 shadow-xl">
-  <figure>
-    <img
-      src="https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp"
-      alt="Shoes" />
-  </figure>
-  <div class="card-body">
-    <h2 class="card-title">Shoes!</h2>
-    <p>If a dog chews shoes whose shoes does he choose?</p>
-    <div class="card-actions justify-end">
-      <button class="btn btn-primary">Buy Now</button>
+  <!-- DaisyUI Button -->
+  <button class="btn btn-primary mb-4">daisyUI</button>
+
+  <!-- Card Section -->
+  <div class="card bg-base-100 w-96 mx-auto shadow-xl">
+    <figure>
+      <img src="https://thumb.ac-illust.com/87/872f8304f3728f4aea537f97c30e11c6_t.jpeg" alt="AAAAAA" />
+    </figure>
+    <div class="card-body">
+      <h2 class="card-title">神戸高専に入りたい？</h2>
+      <p>君じゃ無理だよ...</p>
+      <div class="card-actions justify-end">
+        <button class="btn btn-primary">Buy Now</button>
+      </div>
     </div>
+  </div>
+
+  <!-- Logout Button -->
+  <div class="mt-6">
+    <%= button_to "ログアウト", destroy_user_session_path, class: "btn btn-primary", method: :delete %>
   </div>
 </div>
