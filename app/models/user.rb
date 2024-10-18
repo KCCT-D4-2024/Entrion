@@ -2,6 +2,7 @@ class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   before_validation :set_dummy_email
+  enum status: { default: 0, entered: 1, exited: 2 }
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable,
          authentication_keys: [:name]
@@ -22,6 +23,7 @@ class User < ApplicationRecord
     false
   end
 
+  private
   def set_dummy_email
     if self.email.blank?
       self.email = "#{SecureRandom.uuid}@example.com"
