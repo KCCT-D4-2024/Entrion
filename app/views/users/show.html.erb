@@ -3,6 +3,9 @@
 
 <ul>
   <li><%= @user.name %></li>
-  <li><%= @user.entered_at.blank? ? 0 : @user.entered_at %></li>
+  <li>入室した時間: <%= @user.entered_at.blank? ? "未入室" : @user.entered_at %></li>
+  <li>退室した時間: <%= @user.exited_at.blank? ? "未退室" : @user.exited_at %></li>
   <li><%= @user.status %></li>
 </ul>
+
+<%= link_to '退出用URL', users_exit_path, class: "btn btn-primary" %>

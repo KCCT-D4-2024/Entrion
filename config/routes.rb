@@ -1,11 +1,16 @@
 Rails.application.routes.draw do
-  get "users" => "users#show"
-  get "users/edit"
-  get "users/enter"
   devise_for :users, controllers: {
     registrations: "users/registrations",
     sessions: "users/sessions"
   }
+  get "users" => "users#show"
+  get "users/exit" => "users#exit"
+  get "users/enter" => "users#enter"
+  resources :users, only: [ :show ] do
+    member do
+      get "confirm_exit", to: "users#confirm_exit"
+    end
+  end
   root "tests#index"
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
