@@ -1,60 +1,79 @@
-<div class="flex flex-col items-center bg-gradient-to-r from-blue-400 to-purple-600 min-h-screen p-6 text-white">
-  <!-- ハンバーガーメニュー -->
-  <div class="mb-4">
-    <button id="menu-toggle" class="bg-white text-gray-800 rounded-full p-2 shadow-lg">
-      <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+<div class="min-h-screen bg-gradient-to-br from-indigo-500 via-purple-500 to-pink-500 text-white p-8">
+  <!-- ヘッダー -->
+  <header class="flex justify-between items-center mb-12">
+    <h1 class="text-4xl font-extrabold tracking-tight">
+      電子工学科<span class="text-yellow-300">展示会</span>
+    </h1>
+    <button id="menu-toggle" class="text-white hover:text-yellow-300 transition-colors duration-300">
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
       </svg>
     </button>
-  </div>
+  </header>
 
-  <h1 class="text-5xl font-bold underline mb-6">
-    電子工学科展示会へようこそ！
-  </h1>
+  <!-- メインコンテンツ -->
+  <main class="space-y-12">
+    <!-- ボタングループ -->
+    <div class="grid grid-cols-2 gap-6 max-w-2xl mx-auto">
+      <% ['AAA', 'BBB', 'CCC', 'DDD'].each do |label| %>
+        <button class="bg-white bg-opacity-20 hover:bg-opacity-30 text-white rounded-xl py-4 px-6 shadow-lg backdrop-blur-md transition duration-300 ease-in-out transform hover:scale-105">
+          <%= label %>
+        </button>
+      <% end %>
+    </div>
 
-  <!-- Tailwind Button -->
-  <button class="bg-white hover:bg-gray-200 text-gray-800 rounded-lg px-8 py-4 mb-4 shadow-lg transition duration-300 ease-in-out">
-    Tailwind
-  </button>
-
-  <!-- DaisyUI Button -->
-  <button class="btn btn-primary mb-4 shadow-lg transition duration-300 ease-in-out">DaisyUI</button>
-
-  <!-- Card Section -->
-  <div class="card bg-white w-96 mx-auto shadow-xl transition transform hover:scale-105">
-    <figure>
-      <img src="https://thumb.ac-illust.com/87/872f8304f3728f4aea537f97c30e11c6_t.jpeg" alt="AAAAAA" class="rounded-t-lg" />
-    </figure>
-    <div class="card-body">
-      <h2 class="card-title text-xl font-semibold text-gray-800">神戸高専に入りたい？</h2>
-      <p class="text-gray-600">君じゃ無理だよ...</p>
-      <div class="card-actions justify-end mt-4">
-        <button class="btn btn-primary">Buy Now</button>
+    <!-- カードセクション -->
+    <div class="max-w-md mx-auto bg-white bg-opacity-10 rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition duration-300">
+      <img src="assets/RyosukeTakada.jpg" alt="AAAAAA" class="w-full h-48 object-cover" />
+      <div class="p-6 space-y-4">
+        <h2 class="text-2xl font-bold text-yellow-300">神戸高専に入りたい？</h2>
+        <p class="text-gray-300">君じゃ無理だよ...</p>
+        <button class="w-full bg-gradient-to-r from-yellow-400 to-orange-500 text-white font-bold py-2 px-4 rounded-lg hover:from-yellow-500 hover:to-orange-600 transition duration-300">
+          詳細を見る
+        </button>
       </div>
     </div>
-  </div>
+  </main>
 
-  <!-- Logout Button -->
-  <div class="mt-8">
-    <%= button_to "ログアウト", destroy_user_session_path, class: "bg-red-600 hover:bg-red-500 text-white font-bold py-2 px-4 rounded", method: :delete %>
-  </div>
+  <!-- フッター -->
+  <footer class="mt-16 text-center">
+    <%= button_to "ログアウト", destroy_user_session_path, class: "bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-6 rounded-full transition duration-300", method: :delete %>
+  </footer>
 
-  <!-- ハンバーガーメニューのコンテンツ -->
-  <div id="menu" class="hidden bg-white text-gray-800 rounded-lg shadow-lg mt-4 p-4 absolute z-10">
-    <ul class="space-y-2">
-      <li><a href="#section1" class="hover:underline">セクション1</a></li>
-      <li><a href="#section2" class="hover:underline">セクション2</a></li>
-      <li><a href="#section3" class="hover:underline">セクション3</a></li>
-      <li><a href="#section4" class="hover:underline">セクション4</a></li>
-    </ul>
+  <!-- ハンバーガーメニュー -->
+  <div id="menu" class="fixed inset-0 bg-black bg-opacity-50 z-50 hidden">
+    <div class="bg-white text-gray-800 h-full w-64 p-6 transform translate-x-full transition-transform duration-300 ease-in-out">
+      <button id="close-menu" class="absolute top-4 right-4 text-gray-600 hover:text-gray-800">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+        </svg>
+      </button>
+      <ul class="space-y-4 mt-8">
+        <% ['セクション1', 'セクション2', 'セクション3', 'セクション4'].each do |section| %>
+          <li>
+            <a href="#<%= section.downcase %>" class="block py-2 px-4 text-gray-700 hover:bg-gray-100 rounded-lg transition duration-300">
+              <%= section %>
+            </a>
+          </li>
+        <% end %>
+      </ul>
+    </div>
   </div>
 </div>
 
 <script>
   const menuToggle = document.getElementById('menu-toggle');
+  const closeMenu = document.getElementById('close-menu');
   const menu = document.getElementById('menu');
+  const menuContent = menu.querySelector('div');
 
   menuToggle.addEventListener('click', () => {
-    menu.classList.toggle('hidden');
+    menu.classList.remove('hidden');
+    setTimeout(() => menuContent.style.transform = 'translateX(0)', 10);
+  });
+
+  closeMenu.addEventListener('click', () => {
+    menuContent.style.transform = 'translateX(100%)';
+    setTimeout(() => menu.classList.add('hidden'), 300);
   });
 </script>
