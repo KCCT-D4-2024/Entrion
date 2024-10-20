@@ -1,32 +1,60 @@
-<div class="text-center">
-  <h1 class="text-3xl font-bold underline mb-6">
+<div class="flex flex-col items-center bg-gradient-to-r from-blue-400 to-purple-600 min-h-screen p-6 text-white">
+  <!-- ハンバーガーメニュー -->
+  <div class="mb-4">
+    <button id="menu-toggle" class="bg-white text-gray-800 rounded-full p-2 shadow-lg">
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+      </svg>
+    </button>
+  </div>
+
+  <h1 class="text-5xl font-bold underline mb-6">
     電子工学科展示会へようこそ！
   </h1>
 
   <!-- Tailwind Button -->
-  <button class="bg-gray-900 hover:bg-gray-800 text-white rounded px-4 py-2 mb-4">
-    tailwind
+  <button class="bg-white hover:bg-gray-200 text-gray-800 rounded-lg px-8 py-4 mb-4 shadow-lg transition duration-300 ease-in-out">
+    Tailwind
   </button>
 
   <!-- DaisyUI Button -->
-  <button class="btn btn-primary mb-4">daisyUI</button>
+  <button class="btn btn-primary mb-4 shadow-lg transition duration-300 ease-in-out">DaisyUI</button>
 
   <!-- Card Section -->
-  <div class="card bg-base-100 w-96 mx-auto shadow-xl">
+  <div class="card bg-white w-96 mx-auto shadow-xl transition transform hover:scale-105">
     <figure>
-      <img src="https://thumb.ac-illust.com/87/872f8304f3728f4aea537f97c30e11c6_t.jpeg" alt="AAAAAA" />
+      <img src="https://thumb.ac-illust.com/87/872f8304f3728f4aea537f97c30e11c6_t.jpeg" alt="AAAAAA" class="rounded-t-lg" />
     </figure>
     <div class="card-body">
-      <h2 class="card-title">神戸高専に入りたい？</h2>
-      <p>君じゃ無理だよ...</p>
-      <div class="card-actions justify-end">
+      <h2 class="card-title text-xl font-semibold text-gray-800">神戸高専に入りたい？</h2>
+      <p class="text-gray-600">君じゃ無理だよ...</p>
+      <div class="card-actions justify-end mt-4">
         <button class="btn btn-primary">Buy Now</button>
       </div>
     </div>
   </div>
 
   <!-- Logout Button -->
-  <div class="mt-6">
-    <%= button_to "ログアウト", destroy_user_session_path, class: "btn btn-primary", method: :delete %>
+  <div class="mt-8">
+    <%= button_to "ログアウト", destroy_user_session_path, class: "bg-red-600 hover:bg-red-500 text-white font-bold py-2 px-4 rounded", method: :delete %>
+  </div>
+
+  <!-- ハンバーガーメニューのコンテンツ -->
+  <div id="menu" class="hidden bg-white text-gray-800 rounded-lg shadow-lg mt-4 p-4 absolute z-10">
+    <ul class="space-y-2">
+      <li><a href="#section1" class="hover:underline">セクション1</a></li>
+      <li><a href="#section2" class="hover:underline">セクション2</a></li>
+      <li><a href="#section3" class="hover:underline">セクション3</a></li>
+      <li><a href="#section4" class="hover:underline">セクション4</a></li>
+    </ul>
   </div>
 </div>
+
+<script>
+  const menuToggle = document.getElementById('menu-toggle');
+  const menu = document.getElementById('menu');
+
+  menuToggle.addEventListener('click', () => {
+    menu.classList.toggle('hidden');
+  });
+</script>
