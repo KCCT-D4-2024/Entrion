@@ -1,26 +1,28 @@
-<h2>Log in</h2>
+<h2 class="text-2xl font-bold mb-4">Log in</h2>
 
-<%= form_with model: @user, url: user_session_path do |f| %>
-  <div class="field">
-    <%= f.label :name %><br />
-    <%= f.text_field :name, autofocus: true, autocomplete: "name" %>
+<%= form_with model: @user, url: user_session_path, class: "space-y-4" do |f| %>
+  <div>
+    <%= f.label :name, class: "block font-medium mb-1" %>
+    <%= f.text_field :name, autofocus: true, autocomplete: "name", class: "w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500" %>
   </div>
 
-  <div class="field">
-    <%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "current-password" %>
+  <div>
+    <%= f.label :password, class: "block font-medium mb-1" %>
+    <%= f.password_field :password, autocomplete: "current-password", class: "w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500" %>
   </div>
 
   <% if devise_mapping.rememberable? %>
-    <div class="field">
-      <%= f.check_box :remember_me %>
-      <%= f.label :remember_me %>
+    <div class="flex items-center">
+      <%= f.check_box :remember_me, class: "mr-2" %>
+      <%= f.label :remember_me, class: "font-medium" %>
     </div>
   <% end %>
 
-  <div class="actions">
-    <%= f.submit "Log in" %>
+  <div>
+    <%= f.submit "Log in", class: "w-full bg-blue-500 hover:bg-blue-600 text-white font-medium py-2 px-4 rounded-md" %>
   </div>
 <% end %>
 
-<%= render "devise/shared/links" %>
+<div class="mt-4 text-center">
+  <%= render "devise/shared/links" %>
+</div>

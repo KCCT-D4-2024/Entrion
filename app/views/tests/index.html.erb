@@ -1,32 +1,162 @@
-<div class="text-center">
-  <h1 class="text-3xl font-bold underline mb-6">
-    電子工学科展示会へようこそ！
-  </h1>
+<html>
+<head>
+  <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/alpinejs/2.8.2/alpine.js" integrity="sha512-d4mEOlAhAVVvWYO1k8o2vY/izzr+OofBC+NWHZ+UwRYQHLztJbYsw6SQERVkojGwZtp5+HjMPI2uhMHKUMCqHQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+</head>
+<body>
+<div x-data="{ darkMode: false, menuOpen: false }" :class="{ 'dark': darkMode }" class="min-h-screen bg-white text-blue-900 px-4 py-6 md:px-8 md:py-8">
 
-  <!-- Tailwind Button -->
-  <button class="bg-gray-900 hover:bg-gray-800 text-white rounded px-4 py-2 mb-4">
-    tailwind
-  </button>
+  <!-- ヘッダー -->
+  <header class="flex justify-between items-center mb-8 md:mb-16">
+    <h1 class="text-3xl md:text-5xl font-extrabold tracking-tight">
+      電子工学科<span class="text-cyan-500">展示会</span>
+    </h1>
+    <div class="flex items-center space-x-4">
+      <button @click="darkMode = !darkMode" class="text-blue-800 hover:text-orange-500 focus:outline-none transition duration-300 ease-in-out">
+        <svg x-show="!darkMode" xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
+        </svg>
+        <svg x-show="darkMode" xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
+        </svg>
+      </button>
+      <button @click="menuOpen = !menuOpen" class="text-blue-800 hover:text-orange-500 focus:outline-none transition duration-300 ease-in-out md:hidden">
+        <svg x-show="!menuOpen" xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+        </svg>
+        <svg x-show="menuOpen" xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+        </svg>
+      </button>
+    </div>
+  </header>
 
-  <!-- DaisyUI Button -->
-  <button class="btn btn-primary mb-4">daisyUI</button>
+  <!-- ナビゲーション（大画面） -->
+  <nav class="hidden md:block mb-16">
+    <ul class="flex justify-center space-x-8">
+      <% ['展示一覧', '学科紹介'].each do |item| %>
+        <li>
+          <a href="#" class="text-lg text-blue-800 hover:text-orange-500 transition duration-300">
+            <%= item %>
+          </a>
+        </li>
+      <% end %>
+    </ul>
+  </nav>
 
-  <!-- Card Section -->
-  <div class="card bg-base-100 w-96 mx-auto shadow-xl">
-    <figure>
-      <img src="https://thumb.ac-illust.com/87/872f8304f3728f4aea537f97c30e11c6_t.jpeg" alt="AAAAAA" />
-    </figure>
-    <div class="card-body">
-      <h2 class="card-title">神戸高専に入りたい？</h2>
-      <p>君じゃ無理だよ...</p>
-      <div class="card-actions justify-end">
-        <button class="btn btn-primary">Buy Now</button>
+  <!-- メインコンテンツ -->
+  <main class="space-y-16 md:space-y-24">
+
+    <!-- アイコングリッド -->
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-3xl md:max-w-5xl mx-auto">
+      <% ['🧑‍🤝‍🧑', '🗳', '🏆', '📝'].each do |emoji| %>
+        <div class="flex flex-col items-center text-center">
+          <div class="flex items-center justify-center w-20 h-20 rounded-full mb-4 bg-gradient-to-br from-cyan-400 to-blue-500 text-white text-4xl shadow-lg transform hover:-translate-y-1 hover:scale-105 transition duration-300">
+            <%= emoji %>
+          </div>
+          <h3 class="font-bold text-blue-800 text-lg md:text-xl">カテゴリー</h3>
+        </div>
+      <% end %>
+    </div>
+
+    <!-- カードセクション -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-12 max-w-3xl md:max-w-6xl mx-auto">
+  <% 1.times do %>
+    <div class="bg-white rounded-3xl p-0.5 shadow-lg hover:shadow-xl transform hover:-translate-y-2 transition duration-300 ease-out">
+      <div class="rounded-[calc(1.5rem-2px)] overflow-hidden">
+        <div class="relative w-full">
+          <img src="assets/exhibition_image_1.jpg" alt="展示画像1" class="w-full h-48 md:h-64 object-cover transform hover:scale-105 transition duration-500" />
+          <span class="absolute top-0 left-0 m-4 px-3 py-1.5 bg-orange-500 text-white text-sm font-bold tracking-wide rounded-lg shadow-md">New</span>
+        </div>
+        <div class="px-6 py-4 md:px-8 md:py-6">
+          <h3 class="text-blue-800 text-xl md:text-2xl lg:text-3xl font-bold mb-2">展示タイトル1</h3>
+          <p class="text-gray-600 mb-6 md:mb-8">展示1の説明をここに入れます。来場者の興味を引くような内容を書きましょう。</p>
+          <a href="#" class="block text-center bg-gradient-to-br from-cyan-400 to-blue-500 text-white hover:from-cyan-500 hover:to-blue-600 font-bold text-sm md:text-base tracking-wide rounded-lg shadow-md hover:shadow-lg py-3 px-4 md:py-4 md:px-6 transition duration-300">詳細を見る</a>
+        </div>
       </div>
     </div>
-  </div>
+    
+    <div class="bg-white rounded-3xl p-0.5 shadow-lg hover:shadow-xl transform hover:-translate-y-2 transition duration-300 ease-out">
+      <div class="rounded-[calc(1.5rem-2px)] overflow-hidden">
+        <div class="relative w-full">
+          <img src="assets/RyosukeTakada.jpg" alt="展示画像2" class="w-full h-48 md:h-64 object-cover transform hover:scale-105 transition duration-500" />
+          <span class="absolute top-0 left-0 m-4 px-3 py-1.5 bg-orange-500 text-white text-sm font-bold tracking-wide rounded-lg shadow-md">New</span>
+        </div>
+        <div class="px-6 py-4 md:px-8 md:py-6">
+          <h3 class="text-blue-800 text-xl md:text-2xl lg:text-3xl font-bold mb-2">BBBBBBB</h3>
+          <p class="text-gray-600 mb-6 md:mb-8">展示2の説明をここに入れます。来場者の興味を引くような内容を書きましょう。</p>
+          <a href="#" class="block text-center bg-gradient-to-br from-cyan-400 to-blue-500 text-white hover:from-cyan-500 hover:to-blue-600 font-bold text-sm md:text-base tracking-wide rounded-lg shadow-md hover:shadow-lg py-3 px-4 md:py-4 md:px-6 transition duration-300">詳細を見る</a>
+        </div>
+      </div>
+    </div>
+    
+    <div class="bg-white rounded-3xl p-0.5 shadow-lg hover:shadow-xl transform hover:-translate-y-2 transition duration-300 ease-out">
+      <div class="rounded-[calc(1.5rem-2px)] overflow-hidden">
+        <div class="relative w-full">
+          <img src="assets/exhibition_image_3.jpg" alt="展示画像3" class="w-full h-48 md:h-64 object-cover transform hover:scale-105 transition duration-500" />
+          <span class="absolute top-0 left-0 m-4 px-3 py-1.5 bg-orange-500 text-white text-sm font-bold tracking-wide rounded-lg shadow-md">New</span>
+        </div>
+        <div class="px-6 py-4 md:px-8 md:py-6">
+          <h3 class="text-blue-800 text-xl md:text-2xl lg:text-3xl font-bold mb-2">展示タイトル3</h3>
+          <p class="text-gray-600 mb-6 md:mb-8">展示3の説明をここに入れます。来場者の興味を引くような内容を書きましょう。</p>
+          <a href="#" class="block text-center bg-gradient-to-br from-cyan-400 to-blue-500 text-white hover:from-cyan-500 hover:to-blue-600 font-bold text-sm md:text-base tracking-wide rounded-lg shadow-md hover:shadow-lg py-3 px-4 md:py-4 md:px-6 transition duration-300">詳細を見る</a>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>
 
-  <!-- Logout Button -->
-  <div class="mt-6">
-    <%= button_to "ログアウト", destroy_user_session_path, class: "btn btn-primary", method: :delete %>
+    <div class="container mx-auto px-4 py-8">
+  <h1 class="text-4xl font-bold mb-8">展示一覧</h1>
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+    <% 1.times do %>
+      <div class="card bg-base-100 shadow-xl">
+        <figure class="px-4 pt-4">
+          <img src="assets/RyosukeTakada.jpg" alt="Exhibition Image" class="rounded-xl" />
+        </figure>
+        <div class="card-body">
+          <h2 class="card-title">展示タイトル</h2>
+          <p>展示の説明をここに入力します。来場者を引き付けるような魅力的な文章を考えましょう。</p>
+          <div class="card-actions justify-end">
+            <a href="#" class="btn btn-primary">詳細を見る</a>
+          </div>
+        </div>
+      </div>
+      <div class="card bg-base-100 shadow-xl">
+        <figure class="px-4 pt-4">
+          <img src="assets/RyosukeTakada.jpg" alt="Exhibition Image" class="rounded-xl" />
+        </figure>
+        <div class="card-body">
+          <h2 class="card-title">展示タイトル</h2>
+          <p>展示の説明をここに入力します。来場者を引き付けるような魅力的な文章を考えましょう。</p>
+          <div class="card-actions justify-end">
+            <a href="#" class="btn btn-primary">詳細を見る</a>
+          </div>
+        </div>
+      </div>
+      <div class="card bg-base-100 shadow-xl">
+        <figure class="px-4 pt-4">
+          <img src="assets/RyosukeTakada.jpg" alt="Exhibition Image" class="rounded-xl" />
+        </figure>
+        <div class="card-body">
+          <h2 class="card-title">展示タイトル</h2>
+          <p>展示の説明をここに入力します。来場者を引き付けるような魅力的な文章を考えましょう。</p>
+          <div class="card-actions justify-end">
+            <a href="#" class="btn btn-primary">詳細を見る</a>
+          </div>
+        </div>
+      </div>
+    <% end %>
   </div>
 </div>
+
+  </main>
+
+  <!-- フッター -->
+  <footer class="mt-16 text-center">
+    <%= button_to "ログアウト", destroy_user_session_path, class: "bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-6 rounded-full transition duration-300", method: :delete %>
+  </footer>
+
+</div>
+</body>
+</html>
