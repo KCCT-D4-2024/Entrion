@@ -3,14 +3,17 @@ Rails.application.routes.draw do
     registrations: "users/registrations",
     sessions: "users/sessions"
   }
+  get "info/admin" => "info#admin"
   get "users" => "users#show"
   get "users/exit" => "users#exit"
   get "users/enter" => "users#enter"
+  get "users/enter_page" => "users#enter_page"
   get "users/user_qr" => "users#user_qr"
   post "users/score" => "users#score"
   resources :users, only: [ :show ] do
     member do
       get "confirm_exit", to: "users#confirm_exit"
+      get "confirm_enter", to: "users#confirm_enter"
     end
   end
   root "tests#index"

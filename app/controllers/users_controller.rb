@@ -18,6 +18,39 @@ class UsersController < ApplicationController
   ensure
   end
 
+  def enter_page
+    @user = current_user
+    qr_code = RQRCode::QRCode.new(confirm_enter_user_url(@user))
+    @qr_code_svg = qr_code.as_svg(
+      offset: 0,
+      color: "000",
+      shape_rendering: "crispEdges",
+      module_size: 6,
+      standalone: true,
+      use_path: true
+    )
+  end
+
+  def confirm_enter
+    @user = User.find(params[:id])
+    ActiveRecord::Base.transaction do
+      @user.update(status: :entered, entered_at: Time.zone.now)
+    end
+    sign_in(@user)
+    render status: :ok, json: {
+      success: true,
+      message: "User entered successfully",
+      user: @user
+    }
+  rescue ActiveRecord::RecordInvalid => e
+    flash[:error] = e.message
+    render status: :not_acceptable, json: {
+      success: false,
+      message: e.message
+    }
+  ensure
+  end
+
   def exit
     @user = current_user
     qr_code = RQRCode::QRCode.new(confirm_exit_user_url(@user))
