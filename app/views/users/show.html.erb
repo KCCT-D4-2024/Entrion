@@ -8,4 +8,6 @@
   <li><%= @user.status %></li>
 </ul>
 
+<%= link_to 'ゲームをする際はこちら', users_user_qr_path(@user), class: "btn btn-primary" %>
+
 <%= link_to '退出用URL', users_exit_path, class: "btn btn-primary" %>
