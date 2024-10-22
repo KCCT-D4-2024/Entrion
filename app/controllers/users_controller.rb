@@ -1,6 +1,7 @@
 require "rqrcode"
 class UsersController < ApplicationController
   before_action :authenticate_user!, except: %i[confirm_exit]
+  skip_before_action :verify_authenticity_token
   def show
     @user = current_user
   end
@@ -50,8 +51,42 @@ class UsersController < ApplicationController
   ensure
   end
 
-  def edit
+  def user_qr
+    @user = current_user
+    qr_code = RQRCode::QRCode.new({
+      id: @user.id,
+      name: @user.name,
+      total_score: @user.total_score
+                                  }.to_json.to_s)
+    @qr_code_svg = qr_code.as_svg(
+      offset: 0,
+      color: "000",
+      shape_rendering: "crispEdges",
+      module_size: 6,
+      standalone: true,
+      use_path: true
+    )
   end
 
+  # def score
+  #   @game_score = GameScore.new(game_score_params)
+  #   if @game_score.save
+  #     render json: {
+  #       success: true,
+  #       message: "Game score saved successfully",
+  #       game_score: @game_score
+  #     }
+  #   else
+  #     render json: {
+  #       success: false,
+  #       message: @game_score.errors.full_messages.join(", ")
+  #     }
+  #   end
+  # end
+
   private
+  def game_score_params
+    params.require(:game_score).permit(:score, :game_name, :user_id)
+  end
+
 end
