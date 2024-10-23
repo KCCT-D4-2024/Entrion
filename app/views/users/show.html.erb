@@ -1,17 +1,29 @@
-<h1>Users#show</h1>
-<p>Find me in app/views/users/show.html.erb</p>
+<ul class="list-none space-y-4 text-lg">
+  <li class="font-semibold"><%= @user.name %></li>
 
-<ul>
-  <li><%= @user.name %></li>
-  <li>入室した時間: <%= @user.entered_at.blank? ? "未入室" : @user.entered_at %></li>
-  <li>退室した時間: <%= @user.exited_at.blank? ? "未退室" : @user.exited_at %></li>
-  <li><%= @user.status %></li>
+  <li>
+    <span class="font-semibold">入室した時間:</span>
+    <span class="text-primary"><%= @user.entered_at.blank? ? "未入室" : @entered_at %></span>
+  </li>
+
+  <li>
+    <span class="font-semibold">退室した時間:</span>
+    <span class=""><%= @user.exited_at.blank? ? "未退室" : @exited_at %></span>
+  </li>
+
+  <% if @user.entered? %>
+    <li class="text-green-500 font-semibold">入室中</li>
+  <% elsif @user.exited? %>
+    <li class="text-red-500 font-semibold">退室済み</li>
+  <% end %>
 </ul>
 
-<%= link_to 'ゲームをする際はこちら', users_user_qr_path(@user), class: "btn btn-primary" %>
+<div class="mt-6 space-y-4">
+  <%= link_to 'ゲームプレイ用QRコード', users_user_qr_path(@user), class: "btn btn-primary w-full" %>
 
-<% if @user.entered? %>
-<%= link_to '退出用QRコード', users_exit_path, class: "btn btn-primary" %>
-<% else %>
-<%= link_to '入室用QRコード', users_enter_page_path, class: "btn btn-primary" %>
-<% end %>
+  <% if @user.entered? %>
+    <%= link_to '退出用QRコード', users_exit_path, class: "btn btn-secondary w-full" %>
+  <% else %>
+    <%= link_to '入室用QRコード', users_enter_page_path, class: "btn btn-accent w-full" %>
+  <% end %>
+</div>

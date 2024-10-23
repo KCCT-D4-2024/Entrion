@@ -1,28 +1,26 @@
-<h2 class="text-2xl font-bold mb-4">Log in</h2>
+<h2 class="text-3xl font-bold mb-4 text-center">ログイン</h2>
 
 <%= form_with model: @user, url: user_session_path, class: "space-y-4" do |f| %>
   <div>
-    <%= f.label :name, class: "block font-medium mb-1" %>
-    <%= f.text_field :name, autofocus: true, autocomplete: "name", class: "w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500" %>
+    <label for="user_name" class="block font-medium mb-1">名前</label>
+    <%= f.text_field :name, id: "user_name", autofocus: true, autocomplete: "name", class: "w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500" %>
   </div>
 
   <div>
-    <%= f.label :password, class: "block font-medium mb-1" %>
-    <%= f.password_field :password, autocomplete: "current-password", class: "w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500" %>
+    <label for="user_password" class="block font-medium mb-1">パスワード</label>
+    <%= f.password_field :password, id: "user_password", autocomplete: "current-password", class: "w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500" %>
   </div>
 
   <% if devise_mapping.rememberable? %>
     <div class="flex items-center">
       <%= f.check_box :remember_me, class: "mr-2" %>
-      <%= f.label :remember_me, class: "font-medium" %>
+      <label for="user_remember_me" class="font-medium">ログイン状態を保持する</label>
     </div>
   <% end %>
 
-  <div>
-    <%= f.submit "Log in", class: "w-full bg-blue-500 hover:bg-blue-600 text-white font-medium py-2 px-4 rounded-md" %>
+  <div class="actions">
+    <%= f.submit "ログイン", class: "btn btn-primary w-full" %>
   </div>
 <% end %>
 
-<div class="mt-4 text-center">
-  <%= render "devise/shared/links" %>
-</div>
+<%= render "devise/shared/links" %>

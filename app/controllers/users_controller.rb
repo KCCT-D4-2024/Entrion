@@ -4,6 +4,8 @@ class UsersController < ApplicationController
   skip_before_action :verify_authenticity_token
   def show
     @user = current_user
+    @entered_at = @user.entered_at.strftime("%Y/%m/%d %H:%M:%S") if @user.entered_at.present?
+    @exited_at = @user.exited_at.strftime("%Y/%m/%d %H:%M:%S") if @user.exited_at.present?
   end
 
   def enter

@@ -1,4 +1,11 @@
 Rails.application.routes.draw do
+  get "static_pages/linetrace"
+  get "static_pages/ai"
+  get "static_pages/led"
+  get "static_pages/iot"
+  get "static_pages/dflab"
+  get "static_pages/game"
+  get "static_pages/other"
   devise_for :users, controllers: {
     registrations: "users/registrations",
     sessions: "users/sessions"
@@ -11,6 +18,13 @@ Rails.application.routes.draw do
   get "users/user_qr" => "users#user_qr"
   post "users/score" => "users#score"
   get "info/stats", to: "info#stats"  # ポーリング用エンドポイント
+  get "static_pages/linetrace"
+  get "static_pages/ai"
+  get "static_pages/led"
+  get "static_pages/iot"
+  get "static_pages/dflab"
+  get "static_pages/game"
+  get "static_pages/other"
   resources :users, only: [ :show ] do
     member do
       get "confirm_exit", to: "users#confirm_exit"

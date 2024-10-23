@@ -1,14 +1,29 @@
-<h1>User QR Code</h1>
+<h1 class="text-4xl font-extrabold text-center mt-8">ゲーム用QRコード</h1>
 
-<ul>
-  <li>
-    <strong>Name</strong>: <%= @user.name %>
-  </li>
-  <li>
-    <strong>ID</strong>: <%= @user.id %>
-  </li>
-  <li>
-    <strong>Total Score</strong>: <%= @user.total_score %>
-  </li>
-</ul>
-<%= raw @qr_code_svg %>
+<div class="container mx-auto mt-10 p-6 bg-base-200 shadow-lg rounded-lg">
+  <ul class="list-none space-y-4 text-lg">
+    <li>
+      <strong class="font-semibold text-primary">名前:</strong>
+      <span class="text-lg"><%= @user.name %></span>
+    </li>
+    <li>
+      <strong class="font-semibold text-accent">合計スコア:</strong>
+      <span class="text-lg"><%= @user.total_score %></span>
+    </li>
+  </ul>
+
+  <h2 class="text-3xl font-bold mt-8">ゲームスコア</h2>
+  <div class="mt-4 space-y-2">
+    <% @user.game_scores.each do |score| %>
+      <p class="text-lg">
+        <span class="font-semibold text-secondary"><%= score.game.title %>:</span>
+        <span class="text-lg"><%= score.score %></span>
+      </p>
+    <% end %>
+  </div>
+
+  <h2 class="text-3xl font-bold mt-8">QRコード</h2>
+  <div class="mt-6 flex justify-center">
+    <%= raw @qr_code_svg %>
+  </div>
+</div>
