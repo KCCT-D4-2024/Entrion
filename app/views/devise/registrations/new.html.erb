@@ -1,32 +1,33 @@
-<h2>Sign up</h2>
+<h2 class="text-3xl font-bold text-center mb-6">新規登録</h2>
 
-<%= form_with model: @user, url: user_registration_path do |f| %>
+<%= form_with model: @user, url: user_registration_path, class: "space-y-6" do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
 
   <div class="field">
-    <%= f.label :name %><br />
-    <%= f.text_field :name, autofocus: true, autocomplete: "name" %>
+    <label for="user_name" class="block text-lg font-semibold mb-2">名前</label>
+    <%= f.text_field :name, id: "user_name", class: "input input-bordered w-full", autofocus: true, autocomplete: "name" %>
+  </div>
+
+  <div class="field hidden">
+    <label for="user_email" class="block text-lg font-semibold mb-2">メールアドレス (非表示)</label>
+    <%= f.email_field :email, id: "user_email", class: "input input-bordered w-full", value: "#{SecureRandom.uuid}@example.com", autocomplete: "email" %>
   </div>
 
   <div class="field">
-    <%= f.email_field :email, autocomplete: "email", type: "hidden", value: "#{SecureRandom.uuid}@example.com" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password %>
+    <label for="user_password" class="block text-lg font-semibold mb-2">パスワード</label>
     <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
+      <em class="text-sm text-gray-500">(<%= @minimum_password_length %>文字以上)</em>
+    <% end %>
+    <%= f.password_field :password, id: "user_password", class: "input input-bordered w-full", autocomplete: "new-password" %>
   </div>
 
   <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+    <label for="user_password_confirmation" class="block text-lg font-semibold mb-2">パスワード（確認）</label>
+    <%= f.password_field :password_confirmation, id: "user_password_confirmation", class: "input input-bordered w-full", autocomplete: "new-password" %>
   </div>
 
   <div class="actions">
-    <%= f.submit "Sign up" %>
+    <%= f.submit "新規登録", class: "btn btn-primary w-full" %>
   </div>
 <% end %>
 

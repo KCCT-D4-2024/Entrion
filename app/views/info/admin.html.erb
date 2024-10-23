@@ -1,12 +1,31 @@
-<h1>Information!!</h1>
+<h1 class="text-4xl font-extrabold text-center mt-8">Information</h1>
 
-<p>Find me in app/views/info/admin.html.erb</p>
-<ul>
-  <li>総ユーザー数: <span id="users_count"><%= @users_count %></span>人</li>
-  <li>入室中のユーザー数: <span id="entered_count"><%= @entered_count %></span>人</li>
-  <li>退室済みのユーザー数: <span id="exited_count"><%= @exited_count %></span>人</li>
-  <li>最高スコア: <span id="max_score"><%= @max_score %></span></li>
-</ul>
+<div class="container mx-auto mt-10 p-6 bg-base-200 shadow-lg rounded-lg">
+  <ul class="list-none space-y-8">
+    <li class="flex flex-col items-center">
+      <span class="text-2xl font-semibold">総ユーザー数:</span>
+      <div class="mt-2 text-3xl text-primary font-bold">
+        <span id="users_count"><%= @users_count %></span> 人
+      </div>
+    </li>
+    <li class="flex flex-col items-center">
+      <span class="text-2xl font-semibold">入室中のユーザー数:</span>
+      <div class="mt-2 text-3xl text-accent font-bold">
+        <span id="entered_count"><%= @entered_count %></span> 人
+      </div>
+    </li>
+    <li class="flex flex-col items-center">
+      <span class="text-2xl font-semibold">退室済みのユーザー数:</span>
+      <div class="mt-2 text-3xl text-secondary font-bold">
+        <span id="exited_count"><%= @exited_count %></span> 人
+      </div>
+    </li>
+    <li class="flex flex-col items-center">
+      <span class="text-2xl font-semibold">最高スコア:</span>
+      <span id="max_score" class="mt-2 text-3xl text-info font-bold"><%= @max_score %></span>
+    </li>
+  </ul>
+</div>
 
 <script>
   function updateStats() {
