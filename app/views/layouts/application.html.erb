@@ -12,27 +12,23 @@
 <body class="min-h-screen flex flex-col">
 <header class="navbar bg-primary text-primary-content shadow-lg">
   <div class="navbar-start">
-    <div class="dropdown">
-      <label tabindex="0" class="btn btn-ghost">
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h8m-8 6h16"/>
-        </svg>
-      </label>
-      <ul class="menu dropdown-content bg-base-100 rounded-box z-[1] w-52 p-2 text-black shadow">
-        <% if user_signed_in? %>
-          <li>
-            <%= button_to "ログアウト", destroy_user_session_path, class: "", method: :delete %>
-          </li>
-        <% else %>
+    <% unless user_signed_in? %>
+      <div class="dropdown">
+        <label tabindex="0" class="btn btn-ghost">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h8m-8 6h16"/>
+          </svg>
+        </label>
+        <ul class="menu dropdown-content bg-base-100 rounded-box z-[1] w-52 p-2 text-black shadow">
           <li>
             <%= link_to "新規登録", new_user_registration_path, class: "" %>
           </li>
           <li>
             <%= link_to "ログイン", new_user_session_path, class: "" %>
           </li>
-        <% end %>
-      </ul>
-    </div>
+        </ul>
+      </div>
+    <% end %>
     <%= link_to "電子工学科展示会", root_path, class: "btn btn-ghost normal-case text-xl" %>
   </div>
   <div class="navbar-center hidden lg:flex">
@@ -49,15 +45,20 @@
 </main>
 
 <footer class="footer footer-center p-10 bg-base-200 text-base-content rounded">
-  <div>
-    <ul class="list-disc list-inside space-y-2">
-      <li class="flex items-center">
-        <a href="https://www.kobe-kosen.ac.jp/" target="_blank" class="link link-hover text-primary">神戸高専公式ページ</a>
-      </li>
-      <li class="flex items-center">
-        <a href="https://www.kobe-kosen.ac.jp/groups/denshi/" target="_blank" class="link link-hover text-primary">電子工学科公式ページ</a>
-      </li>
-    </ul>
+  <div class="flex justify-around">
+    <div>
+      <ul class="list-disc list-inside space-y-2">
+        <li class="flex items-center">
+          <a href="https://www.kobe-kosen.ac.jp/" target="_blank" class="link link-hover text-primary">神戸高専公式ページ</a>
+        </li>
+        <li class="flex items-center">
+          <a href="https://www.kobe-kosen.ac.jp/groups/denshi/" target="_blank" class="link link-hover text-primary">電子工学科公式ページ</a>
+        </li>
+      </ul>
+    </div>
+    <div>
+      <%= button_to "ログアウト", destroy_user_session_path, class: "btn btn-error", method: :delete %>
+    </div>
   </div>
   <div>
     <p>&copy; 2024 Hayatann. All rights reserved.</p>
