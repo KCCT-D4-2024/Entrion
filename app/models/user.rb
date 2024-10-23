@@ -1,6 +1,7 @@
 class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
+  after_update :broadcast_info
   before_validation :set_dummy_email
   enum status: { default: 0, entered: 1, exited: 2 }
   has_many :game_scores, dependent: :destroy
@@ -31,4 +32,13 @@ class User < ApplicationRecord
     end
   end
 
+  def broadcast_info
+    Rails.logger.info "Broadcasting user data..."
+    ActionCable.server.broadcast "info_channel", {
+      users_count: User.count,
+      entered_count: User.entered.count,
+      exited_count: User.exited.count,
+      max_score: User.maximum(:total_score)
+    }
+  end
 end

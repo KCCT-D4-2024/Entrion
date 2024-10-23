@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   get "users/enter_page" => "users#enter_page"
   get "users/user_qr" => "users#user_qr"
   post "users/score" => "users#score"
+  get "info/stats", to: "info#stats"  # ポーリング用エンドポイント
   resources :users, only: [ :show ] do
     member do
       get "confirm_exit", to: "users#confirm_exit"
@@ -34,4 +35,5 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "posts#index"
+  mount ActionCable.server => "/cable"
 end

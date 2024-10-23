@@ -2,8 +2,26 @@
 
 <p>Find me in app/views/info/admin.html.erb</p>
 <ul>
-  <li>総ユーザー数: <%= @users_count %>人</li>
-  <li>入室中のユーザー数: <%= @entered_count %>人</li>
-  <li>退室済みのユーザー数: <%= @exited_count %>人</li>
-  <li>最高スコア: <%= @max_score %></li>
+  <li>総ユーザー数: <span id="users_count"><%= @users_count %></span>人</li>
+  <li>入室中のユーザー数: <span id="entered_count"><%= @entered_count %></span>人</li>
+  <li>退室済みのユーザー数: <span id="exited_count"><%= @exited_count %></span>人</li>
+  <li>最高スコア: <span id="max_score"><%= @max_score %></span></li>
 </ul>
+
+<script>
+  function updateStats() {
+    fetch('/info/stats')
+      .then(response => response.json())
+      .then(data => {
+        document.getElementById('users_count').innerText = data.users_count;
+        document.getElementById('entered_count').innerText = data.entered_count;
+        document.getElementById('exited_count').innerText = data.exited_count;
+        document.getElementById('max_score').innerText = data.max_score;
+      })
+      .catch(error => console.error('Error fetching stats:', error));
+  }
+  console.log('updateStats() called');
+
+  // 5秒ごとにポーリング
+  setInterval(updateStats, 5000);
+</script>

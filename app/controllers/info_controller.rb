@@ -6,4 +6,13 @@ class InfoController < ApplicationController
     @users_count = User.count || 0
     @max_score = User.maximum(:total_score) || 0
   end
+
+  def stats
+    render json: {
+      users_count: User.count || 0,
+      entered_count: User.entered.count || 0,
+      exited_count: User.exited.count || 0,
+      max_score: User.maximum(:total_score) || 0
+    }
+  end
 end
