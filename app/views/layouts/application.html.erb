@@ -12,23 +12,6 @@
 <body class="min-h-screen flex flex-col">
 <header class="navbar bg-primary text-primary-content shadow-lg">
   <div class="navbar-start">
-    <% unless user_signed_in? %>
-      <div class="dropdown">
-        <label tabindex="0" class="btn btn-ghost">
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h8m-8 6h16"/>
-          </svg>
-        </label>
-        <ul class="menu dropdown-content bg-base-100 rounded-box z-[1] w-52 p-2 text-black shadow">
-          <li>
-            <%= link_to "新規登録", new_user_registration_path, class: "" %>
-          </li>
-          <li>
-            <%= link_to "ログイン", new_user_session_path, class: "" %>
-          </li>
-        </ul>
-      </div>
-    <% end %>
     <%= link_to "電子工学科展示会", root_path, class: "btn btn-ghost normal-case text-xl" %>
   </div>
   <div class="navbar-center hidden lg:flex">
@@ -36,6 +19,11 @@
   <% if user_signed_in? %>
     <div class="navbar-end mx-8">
       <%= link_to current_user.name, users_path, class: "btn btn-ghost normal-case text-xl text-bold" %>
+    </div>
+  <% else %>
+    <div class="navbar-end mx-8">
+      <%= link_to "ログイン", user_session_path, class: "btn btn-ghost normal-case text-xl" %>
+      <%= link_to "新規登録", user_registration_path, class: "btn btn-ghost normal-case text-xl" %>
     </div>
   <% end %>
 </header>
