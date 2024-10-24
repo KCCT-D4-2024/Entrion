@@ -21,9 +21,9 @@
       <%= link_to current_user.name, users_path, class: "btn btn-ghost normal-case text-xl text-bold" %>
     </div>
   <% else %>
-    <div class="navbar-end mx-8">
-      <%= link_to "ログイン", user_session_path, class: "btn btn-ghost normal-case text-xl" %>
-      <%= link_to "新規登録", user_registration_path, class: "btn btn-ghost normal-case text-xl" %>
+    <div class="navbar-end mx-2">
+      <%= link_to "ログイン", user_session_path, class: "btn btn-ghost btn-xs normal-case" %>
+      <%= link_to "新規登録", user_registration_path, class: "btn btn-ghost btn-xs normal-case" %>
     </div>
   <% end %>
 </header>

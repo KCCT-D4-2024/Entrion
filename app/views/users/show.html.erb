@@ -3,12 +3,12 @@
 
   <li>
     <span class="font-semibold">入室した時間:</span>
-    <span class="text-primary"><%= @user.entered_at.blank? ? "未入室" : @entered_at %></span>
+    <span class="font-semibold"><%= @user.entered_at.blank? ? "未入室" : @entered_at %></span>
   </li>
 
   <li>
     <span class="font-semibold">退室した時間:</span>
-    <span class=""><%= @user.exited_at.blank? ? "未退室" : @exited_at %></span>
+    <span class="font-semibold"><%= @user.exited_at.blank? ? "未退室" : @exited_at %></span>
   </li>
 
   <% if @user.entered? %>
@@ -19,7 +19,10 @@
 </ul>
 
 <div class="mt-6 space-y-4">
-  <%= link_to '科展示についてはこちら', root_path, class: "btn btn-primary w-full" %>
+  <%= link_to '科展示についてはこちら', root_path, class: "btn btn-info w-full" %>
+  <a href="https://forms.gle/9qojTzwYypzBPX4i8" class="btn btn-primary w-full">
+    感想フォームの入力はこちら
+  </a>
   <%= link_to 'ゲームプレイ用QRコード', users_user_qr_path(@user), class: "btn btn-accent w-full" %>
   <% if @user.entered? %>
     <%= link_to '退出用QRコード', users_exit_path, class: "btn btn-secondary w-full" %>
