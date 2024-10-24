@@ -45,7 +45,9 @@
       </ul>
     </div>
     <div>
-      <%= button_to "ログアウト", destroy_user_session_path, class: "btn btn-error", method: :delete %>
+      <% if user_signed_in? %>
+        <%= button_to "ログアウト", destroy_user_session_path, class: "btn btn-error", method: :delete %>
+      <% end %>
     </div>
   </div>
   <div>
