@@ -1,5 +1,5 @@
 <ul class="list-none space-y-4 text-lg">
-  <li class="font-semibold"><%= @user.name %></li>
+  <li class="font-bold text-3xl"><%= @user.name %></li>
 
   <li>
     <span class="font-semibold">入室した時間:</span>
@@ -19,11 +19,11 @@
 </ul>
 
 <div class="mt-6 space-y-4">
-  <%= link_to 'ゲームプレイ用QRコード', users_user_qr_path(@user), class: "btn btn-primary w-full" %>
-
+  <%= link_to '科展示についてはこちら', root_path, class: "btn btn-primary w-full" %>
+  <%= link_to 'ゲームプレイ用QRコード', users_user_qr_path(@user), class: "btn btn-accent w-full" %>
   <% if @user.entered? %>
     <%= link_to '退出用QRコード', users_exit_path, class: "btn btn-secondary w-full" %>
   <% else %>
-    <%= link_to '入室用QRコード', users_enter_page_path, class: "btn btn-accent w-full" %>
+    <%= link_to '入室用QRコード', users_enter_page_path, class: "btn btn-secondary w-full" %>
   <% end %>
 </div>

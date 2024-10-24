@@ -12,6 +12,8 @@ class User < ApplicationRecord
   validates_uniqueness_of :name
   validates_presence_of :name
 
+  validate :password_allow_numeric_only
+
   def self.find_for_database_authentication(warden_conditions)
     conditions = warden_conditions.dup
     if name = conditions.delete(:name)
@@ -40,5 +42,13 @@ class User < ApplicationRecord
       exited_count: User.exited.count,
       max_score: User.maximum(:total_score)
     }
+  end
+
+  def password_allow_numeric_only
+    if password.present?
+      unless password.match?(/\A\d+\z/) || password.match?(/\A[a-zA-Z0-9]+\z/)
+        errors.add(:password, "は無効です。数字または英数字のみを使用してください。")
+      end
+    end
   end
 end
