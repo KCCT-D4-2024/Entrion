@@ -1,6 +1,6 @@
 require "rqrcode"
 class UsersController < ApplicationController
-  before_action :authenticate_user!, except: %i[confirm_exit]
+  before_action :authenticate_user!, except: %i[confirm_exit confirm_enter]
   skip_before_action :verify_authenticity_token
   def show
     @user = current_user
