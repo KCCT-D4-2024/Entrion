@@ -8,7 +8,10 @@ class StaticPagesController < ApplicationController
   def led
   end
 
-  def iot
+  def iot_led
+  end
+
+  def iot_qr
   end
 
   def dflab

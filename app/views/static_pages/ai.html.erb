@@ -2,15 +2,47 @@
   <h1 style="color: blue; font-weight: bold; font-size: 23px; margin-left: 3px; margin-top: 5px;">【AI体験】</h1>
 
   <div class="border-2 border-gray-300 rounded-lg p-4 my-4">
-    <table class="w-full">
-      <tr>
-        <td class="border-r-2 border-gray-300 pr-4">
-          <img src="image.jpg" alt="画像の説明"> <!-- 画像のパスとサイズを指定 -->
-        </td>
-        <td class="pl-4">
-          <p>ここに文章が入ります。画像の右側にテキストを配置しています。</p>
-        </td>
-      </tr>
-    </table>
+    <div class="text-center">
+      <%= image_tag "ai-1.png", alt: "フローチャート", class: "mb-4" %>
+    </div>
+
+    <div class="mt-4">
+      <div>
+        <h1 class="font-bold text-2xl">概要</h1>
+        <p>
+          カメラに映った自分が画像生成によって様々な姿に変化する展示です。プロンプトを入力することで生成したい画像のテーマを決められます。
+          最新の画像生成AI StableDiffusionXL-Turboの最大の特徴である高速な画像生成を、ぜひご体験ください。<br>
+          <br>
+          入力されたプロンプト（生成画像のテーマ）は、まず英語に翻訳され、テキストエンコーダーによってエンコード（扱いやすいデータ形式に変換）されます。
+          同時に、カメラから取得した映像は、プリプロセッサー（前処理プログラム）によってフレームごとに分割され、エンコードされます。
+          これらのデータは、HPCが作ったサーバーに送信され、Stable Diffusion XL Turbo（画像生成AI）のImage-to-Imageによって画像生成が行われます。<br>
+        <br>
+           <h1 class="font-semibold text-lg">【こだわった部分】</h1>
+        <p>
+          できるだけ簡素な構成にした
+        </p>
+        <br>
+        <h1 class="font-semibold text-lg">【苦労した部分】</h1>
+        <p>
+          HPCとの接続、Dockerの構築
+        </p>
+        <br>
+         <h1 class="font-semibold text-lg">【見てほしいところ】</h1>
+        <p>
+          画像生成AIの将来性を感じてほしい
+        </p>
+        <br>
+        <h2 class="font-semibold text-lg">
+          チームメンバー
+        </h2>
+        <p>
+          島,
+          長谷川,
+          長野,
+          鷹尾,
+          藤原(勇)
+        </p>
+      </div>
+    </div>
   </div>
 </div>

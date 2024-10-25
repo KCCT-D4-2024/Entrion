@@ -1,16 +1,52 @@
 <div class="container mx-auto p-4">
-  <h1 style="color: blue; font-weight: bold; font-size: 23px; margin-left: 3px; margin-top: 5px;">【ゲーム体験】</h1>
+  <h1 style="color: blue; font-weight: bold; font-size: 23px; margin-left: 3px; margin-top: 5px;">【ゲームコーナー】</h1>
 
   <div class="border-2 border-gray-300 rounded-lg p-4 my-4">
-    <table class="w-full">
-      <tr>
-        <td class="border-r-2 border-gray-300 pr-4">
-          <img src="image.jpg" alt="画像の説明"> <!-- 画像のパスとサイズを指定 -->
-        </td>
-        <td class="pl-4">
-          <p>ここに文章が入ります。画像の右側にテキストを配置しています。</p>
-        </td>
-      </tr>
-    </table>
+    <div class="flex justify-center">
+      <%= image_tag "game2.png", alt: "QRコード", class: "mb-4 object-cover h-auto max-h-96 w-auto max-w-60" %>
+    </div>
+    <hr style="border-color: #d1d5db;" class="border-2">
+
+
+    <div class="mt-4">
+      <div>
+        <h1 class="font-bold text-2xl">概要</h1>
+        <p>
+          〇もぐらたたき<br>
+          マウスを動かしてもぐらをたたく。
+          <br>
+          〇ダンジョンシューティング <br>
+          毎回ランダムに生成されるダンジョンを攻略する。
+          <br>
+          〇TRIPUZZLE ONLINE <br>
+          同じ色のブロックを縦か横に３つ以上つなげて相手に攻撃する落ちもの対戦パズルゲーム。
+          <br>
+        </p>
+        <br>
+         <h1 class="font-semibold text-lg">【こだわった部分】</h1>
+        <p>
+          ダンジョンシューティングは武器やアイテム、敵キャラクターの画像も自作した。 <br>
+          武器やアクセサリーは多くの種類があるが、どれを使ってもゲームクリアができるようにバランス調整を行った。 <br>
+          ダンジョンの形もプレイするたびに変わる。<br>
+          <br>
+          TRIPUZZLEはCOMのAIの制御をこだわった。 <br>
+          COMは、そのときの盤面の状況やコンボ数などにの条件によって、どこにブロックを置くかを変えている。 <br>
+          COM対戦の他にもオンライン対戦に対応している。<br>
+        </p>
+        <br>
+        <h1 class="font-semibold text-lg">【苦労した部分】</h1>
+        <p>
+          TRIPUZZLEはオンライン対戦に対応しているが、オンライン対戦のプレイ中に対戦相手に送る情報は最小限にする必要があるため苦労した。
+        </p>
+        <br>
+        <h2 class="font-semibold text-lg">
+          チームメンバー
+        </h2>
+        <p>
+          妹背
+
+        </p>
+      </div>
+    </div>
   </div>
 </div>

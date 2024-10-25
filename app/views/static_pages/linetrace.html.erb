@@ -1,16 +1,46 @@
 <div class="container mx-auto p-4">
-  <h1 style="color: blue; font-weight: bold; font-size: 23px; margin-left: 3px; margin-top: 5px;">【ライントレース展示】</h1>
+  <h1 style="color: blue; font-weight: bold; font-size: 23px; margin-left: 3px; margin-top: 5px;">【ライントレース】</h1>
 
   <div class="border-2 border-gray-300 rounded-lg p-4 my-4">
-    <table class="w-full">
-      <tr>
-        <td class="border-r-2 border-gray-300 pr-4">
-          <img src="image.jpg" alt="画像の説明"> <!-- 画像のパスとサイズを指定 -->
-        </td>
-        <td class="pl-4">
-          <p>ここに文章が入ります。画像の右側にテキストを配置しています。</p>
-        </td>
-      </tr>
-    </table>
+    <div class="flex justify-center">
+      <%= image_tag "line.jpeg", alt: "QRコード", class: "mb-4 object-cover h-auto max-h-96 w-auto max-w-60" %>
+    </div>
+    <hr style="border-color: #d1d5db;" class="border-2">
+
+
+    <div class="mt-4">
+      <div>
+        <h1 class="font-bold text-2xl">概要</h1>
+        <p>
+          実験実習の科目で、「ライントレースカー」という、線に沿って走行する車を製作しました。
+          プログラミングだけではなく、ボディの設計から部品調達まで全て1から行いました。
+          それぞれの班で多種多様な車や回路があり、個性が現れています。
+          <br>
+        </p>
+        <br>
+         <h1 class="font-semibold text-lg">【こだわった部分】</h1>
+        <p>
+          班によって様々な車の形があり、それぞれが1番走りやすい姿を追求しました。車によって走るスピードやセンサーの付け方が違うので、そういったところにもぜひ目を向けてみてください！
+        </p>
+        <br>
+        <h1 class="font-semibold text-lg">【苦労した部分】</h1>
+        <p>
+          回路を1から設計し、部品なども自分たちで購入し基板上に配置しました。全てが手作りなので上手く動かないことが多く、その原因を突き止めるのにとても時間を要しました。ただ、その分、走った時の感動が大きく結果としてとてもいい経験になったと思います！
+        </p>
+        <br>
+         <h1 class="font-semibold text-lg">【見てほしいところ】</h1>
+        <p>
+          機体によってそれぞれの班の個性が出ています。色んな走り方をしながらコースを回るのでぜひ車によっての違いを探してみてください！
+        </p>
+        <br>
+        <h2 class="font-semibold text-lg">
+          著者
+        </h2>
+        <p>
+          吉田
+
+        </p>
+      </div>
+    </div>
   </div>
 </div>

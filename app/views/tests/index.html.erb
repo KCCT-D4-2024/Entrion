@@ -19,8 +19,9 @@
         <%= link_to static_pages_linetrace_path, class: "" do %>
         <div class="rounded-[calc(1.5rem-2px)] overflow-hidden">
           <div class="relative w-full">
-            <img src="assets/exhibition_image_1.jpg" alt="展示画像1"
-                 class="w-full h-48 md:h-64 object-cover transform hover:scale-105 transition duration-500"/>
+<!--            <img src="line.jpeg" alt="展示画像1"-->
+<!--                 class="w-full h-48 md:h-64 object-cover transform hover:scale-105 transition duration-500"/>-->
+            <%= image_tag "line.jpeg", alt: "", class: "w-full h-48 md:h-64 object-cover transform hover:scale-105 transition duration-500" %>
             <span
               class="absolute top-0 left-0 m-4 px-3 py-1.5 bg-orange-500 text-white text-sm font-bold tracking-wide rounded-lg shadow-md">1F</span>
           </div>
@@ -38,8 +39,9 @@
       <%= link_to static_pages_led_path, class: "" do %>
         <div class="rounded-[calc(1.5rem-2px)] overflow-hidden">
           <div class="relative w-full">
-            <img src="assets/exhibition_image_1.jpg" alt="展示画像1"
-                 class="w-full h-48 md:h-64 object-cover transform hover:scale-105 transition duration-500"/>
+<!--            <img src="assets/exhibition_image_1.jpg" alt="展示画像1"-->
+<!--                 class="w-full h-48 md:h-64 object-cover transform hover:scale-105 transition duration-500"/>-->
+            <%= image_tag "led2.jpeg", alt: "ledサムネイル", class: "w-full h-48 md:h-64 object-cover transform hover:scale-105 transition duration-500" %>
             <span
               class="absolute top-0 left-0 m-4 px-3 py-1.5 bg-orange-500 text-white text-sm font-bold tracking-wide rounded-lg shadow-md">1F</span>
           </div>
@@ -54,37 +56,34 @@
     <!-- 展示カード3-->
     <div
       class="bg-white rounded-3xl p-0.5 shadow-lg hover:shadow-xl transform hover:-translate-y-2 transition duration-300 ease-out">
-      <%= link_to static_pages_iot_path, class: "" do %>
+      <%= link_to static_pages_iot_led_path, class: "" do %>
         <div class="rounded-[calc(1.5rem-2px)] overflow-hidden">
           <div class="relative w-full">
-            <img src="assets/exhibition_image_1.jpg" alt="展示画像1"
-                 class="w-full h-48 md:h-64 object-cover transform hover:scale-105 transition duration-500"/>
+            <%= image_tag "iot-1.jpeg", alt: "IoTサムネイル", class: "w-full h-48 md:h-64 object-cover transform hover:scale-105 transition duration-500" %>
             <span
               class="absolute top-0 left-0 m-4 px-3 py-1.5 bg-orange-500 text-white text-sm font-bold tracking-wide rounded-lg shadow-md">1F</span>
           </div>
           <div class="px-4 py-4 md:px-6 md:py-6">
-            <h3 class="text-blue-800 text-xl md:text-2xl lg:text-3xl font-bold mb-2">IoT</h3>
+            <h3 class="text-blue-800 text-xl md:text-2xl lg:text-3xl font-bold mb-2">IoT_LED体験</h3>
             <p class="text-gray-600 mb-4 md:mb-6">Discordから様々なもの制御!</p>
-            <%= link_to "詳細を見る", static_pages_iot_path, class: "block text-center bg-gradient-to-br from-cyan-400 to-blue-500 text-white hover:from-cyan-500 hover:to-blue-600 font-bold text-sm md:text-base tracking-wide rounded-lg shadow-md hover:shadow-lg py-2 px-4 md:py-3 md:px-6 transition duration-300" %>
+            <%= link_to "詳細を見る", static_pages_iot_led_path, class: "block text-center bg-gradient-to-br from-cyan-400 to-blue-500 text-white hover:from-cyan-500 hover:to-blue-600 font-bold text-sm md:text-base tracking-wide rounded-lg shadow-md hover:shadow-lg py-2 px-4 md:py-3 md:px-6 transition duration-300" %>
           </div>
         </div>
       <% end %>
     </div>
-    <!-- 展示カード4-->
     <div
       class="bg-white rounded-3xl p-0.5 shadow-lg hover:shadow-xl transform hover:-translate-y-2 transition duration-300 ease-out">
-      <%= link_to static_pages_dflab_path, class: "" do %>
+      <%= link_to static_pages_iot_qr_path, class: "" do %>
         <div class="rounded-[calc(1.5rem-2px)] overflow-hidden">
           <div class="relative w-full">
-            <img src="assets/exhibition_image_1.jpg" alt="展示画像1"
-                 class="w-full h-48 md:h-64 object-cover transform hover:scale-105 transition duration-500"/>
+            <%= image_tag "iot_pr1.jpeg", alt: "IoTサムネイル", class: "w-full h-48 md:h-64 object-cover transform hover:scale-105 transition duration-500" %>
             <span
               class="absolute top-0 left-0 m-4 px-3 py-1.5 bg-orange-500 text-white text-sm font-bold tracking-wide rounded-lg shadow-md">1F</span>
           </div>
           <div class="px-4 py-4 md:px-6 md:py-6">
-            <h3 class="text-blue-800 text-xl md:text-2xl lg:text-3xl font-bold mb-2">DF Lab.活用</h3>
-            <p class="text-gray-600 mb-4 md:mb-6">電子工学科の3Dプリンターで想像を形に!</p>
-            <%= link_to "詳細を見る", static_pages_dflab_path, class: "block text-center bg-gradient-to-br from-cyan-400 to-blue-500 text-white hover:from-cyan-500 hover:to-blue-600 font-bold text-sm md:text-base tracking-wide rounded-lg shadow-md hover:shadow-lg py-2 px-4 md:py-3 md:px-6 transition duration-300" %>
+            <h3 class="text-blue-800 text-xl md:text-2xl lg:text-3xl font-bold mb-2">IoT_QR体験</h3>
+            <p class="text-gray-600 mb-4 md:mb-6">QRコードで宝箱を空けよう!</p>
+            <%= link_to "詳細を見る", static_pages_iot_qr_path, class: "block text-center bg-gradient-to-br from-cyan-400 to-blue-500 text-white hover:from-cyan-500 hover:to-blue-600 font-bold text-sm md:text-base tracking-wide rounded-lg shadow-md hover:shadow-lg py-2 px-4 md:py-3 md:px-6 transition duration-300" %>
           </div>
         </div>
       <% end %>
@@ -95,8 +94,9 @@
       <%= link_to static_pages_game_path, class: "" do %>
         <div class="rounded-[calc(1.5rem-2px)] overflow-hidden">
           <div class="relative w-full">
-            <img src="assets/exhibition_image_1.jpg" alt="展示画像1"
-                 class="w-full h-48 md:h-64 object-cover transform hover:scale-105 transition duration-500"/>
+<!--            <img src="assets/exhibition_image_1.jpg" alt="展示画像1"-->
+<!--                 class="w-full h-48 md:h-64 object-cover transform hover:scale-105 transition duration-500"/>-->
+            <%= image_tag "game2.png", alt: "gameサムネイル", class: "w-full h-48 md:h-64 object-cover transform hover:scale-105 transition duration-500" %>
             <span
               class="absolute top-0 left-0 m-4 px-3 py-1.5 bg-orange-500 text-white text-sm font-bold tracking-wide rounded-lg shadow-md">1F</span>
           </div>
@@ -122,8 +122,7 @@
       <%= link_to static_pages_ai_path, class: "" do %>
         <div class="rounded-[calc(1.5rem-2px)] overflow-hidden">
           <div class="relative w-full">
-            <img src="assets/exhibition_image_1.jpg" alt="展示画像1"
-                 class="w-full h-48 md:h-64 object-cover transform hover:scale-105 transition duration-500"/>
+            <%= image_tag "ai-2.jpeg", alt: "AI展示画像", class: "w-full h-48 md:h-64 object-cover transform hover:scale-105 transition duration-500" %>
             <span
               class="absolute top-0 left-0 m-4 px-3 py-1.5 bg-orange-500 text-white text-sm font-bold tracking-wide rounded-lg shadow-md">2F</span>
           </div>
@@ -135,14 +134,35 @@
         </div>
       <% end %>
     </div>
+    <!-- 展示カード4-->
+    <div
+      class="bg-white rounded-3xl p-0.5 shadow-lg hover:shadow-xl transform hover:-translate-y-2 transition duration-300 ease-out">
+      <%= link_to static_pages_dflab_path, class: "" do %>
+        <div class="rounded-[calc(1.5rem-2px)] overflow-hidden">
+          <div class="relative w-full">
+<!--            <img src="assets/exhibition_image_1.jpg" alt="展示画像1"-->
+<!--                 class="w-full h-48 md:h-64 object-cover transform hover:scale-105 transition duration-500"/>-->
+            <%= image_tag "dflab1.png", alt: "gameサムネイル", class: "w-full h-48 md:h-64 object-cover transform hover:scale-105 transition duration-500" %>
+            <span
+              class="absolute top-0 left-0 m-4 px-3 py-1.5 bg-orange-500 text-white text-sm font-bold tracking-wide rounded-lg shadow-md">2F</span>
+          </div>
+          <div class="px-4 py-4 md:px-6 md:py-6">
+            <h3 class="text-blue-800 text-xl md:text-2xl lg:text-3xl font-bold mb-2">DF Lab.活用</h3>
+            <p class="text-gray-600 mb-4 md:mb-6">電子工学科の3Dプリンターで想像を形に!</p>
+            <%= link_to "詳細を見る", static_pages_dflab_path, class: "block text-center bg-gradient-to-br from-cyan-400 to-blue-500 text-white hover:from-cyan-500 hover:to-blue-600 font-bold text-sm md:text-base tracking-wide rounded-lg shadow-md hover:shadow-lg py-2 px-4 md:py-3 md:px-6 transition duration-300" %>
+          </div>
+        </div>
+      <% end %>
+    </div>
     <!-- 展示カード2 -->
     <div
       class="bg-white rounded-3xl p-0.5 shadow-lg hover:shadow-xl transform hover:-translate-y-2 transition duration-300 ease-out">
       <%= link_to static_pages_other_path, class: "" do %>
         <div class="rounded-[calc(1.5rem-2px)] overflow-hidden">
           <div class="relative w-full">
-            <img src="assets/exhibition_image_1.jpg" alt="展示画像1"
-                 class="w-full h-48 md:h-64 object-cover transform hover:scale-105 transition duration-500"/>
+<!--            <img src="assets/exhibition_image_1.jpg" alt="展示画像1"-->
+<!--                 class="w-full h-48 md:h-64 object-cover transform hover:scale-105 transition duration-500"/>-->
+            <%= image_tag "other1.jpg", alt: "gameサムネイル", class: "w-full h-48 md:h-64 object-cover transform hover:scale-105 transition duration-500" %>
             <span
               class="absolute top-0 left-0 m-4 px-3 py-1.5 bg-orange-500 text-white text-sm font-bold tracking-wide rounded-lg shadow-md">2F</span>
           </div>
@@ -156,7 +176,7 @@
     </div>
   </div>
 
-    <!-- カードセクション -->
+  <!-- カードセクション -->
   <div class="text-center my-8">
     <h4 class="font-bold text-blue-800 text-lg md:text-xl">【お手元のデバイスで動作】</h4>
   </div>
@@ -165,11 +185,12 @@
     <!-- 展示カード1 -->
     <div
       class="bg-white rounded-3xl p-0.5 shadow-lg hover:shadow-xl transform hover:-translate-y-2 transition duration-300 ease-out">
-      <%= link_to static_pages_ai_path, class: "" do %>
+      <%= link_to "https://minigame-for-kosensai2024-g581.vercel.app/", class: "" do %>
         <div class="rounded-[calc(1.5rem-2px)] overflow-hidden">
           <div class="relative w-full">
-            <img src="assets/exhibition_image_1.jpg" alt="展示画像1"
-                 class="w-full h-48 md:h-64 object-cover transform hover:scale-105 transition duration-500"/>
+<!--            <img src="assets/exhibition_image_1.jpg" alt="展示画像1"-->
+<!--                 class="w-full h-48 md:h-64 object-cover transform hover:scale-105 transition duration-500"/>-->
+             <%= image_tag "phonegame.jpeg", alt: "phonegameサムネイル", class: "w-full h-48 md:h-64 object-cover transform hover:scale-105 transition duration-500" %>
           </div>
           <div class="px-4 py-4 md:px-6 md:py-6">
             <h3 class="text-blue-800 text-xl md:text-2xl lg:text-3xl font-bold mb-2">ミニゲーム</h3>

@@ -19,6 +19,7 @@
       <em class="text-sm text-gray-500">(<%= @minimum_password_length %>文字以上)</em>
     <% end %>
     <%= f.password_field :password, id: "user_password", class: "input input-bordered w-full", autocomplete: "new-password" %>
+    <em class="text-sm text-gray-500">※パスワードは暗号化されています。高専祭終了後，ユーザーデータは削除します。</em>
   </div>
 
   <div class="field">
